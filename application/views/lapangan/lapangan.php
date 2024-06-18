@@ -1,17 +1,16 @@
 <!-- HERO -->
 <section>
-  <div class="hero-section d-flex align-items-center justify-content-center">
+  <div id="hero" class="hero-section d-flex align-items-center justify-content-center">
     <div class="hero-text">
       <h1 class="display-4">Kongfield</h1>
       <p class="lead">Penyewaan lapangan terbaik se-Indonesia</p>
-      <a href="#" class="btn btn-primary btn-lg">Sewa Sekarang!</a>
     </div>
   </div>
 </section>
 
 <!-- SEARCH -->
 <section class="my-4">
-  <div class="container search-form">
+  <div id="fields" class="container search-form">
     <div class="row justify-content-center">
       <div class="col-md-8">
         <form class="d-flex">
