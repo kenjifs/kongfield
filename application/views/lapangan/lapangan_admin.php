@@ -11,7 +11,7 @@
 
 <!-- SEARCH -->
 <section class="my-4">
-    <div class="container search-form">
+    <div id="fields" class="container search-form">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form class="d-flex" action="<?= base_url('lapangan/search'); ?>" method="GET">
@@ -35,7 +35,7 @@
                         <p class="card-text"><?= $field['description']; ?></p>
                         <div class="d-flex justify-content-center">
                             <a href="<?= base_url('lapangan/edit/' . $field['id']) ?>" class="btn btn-info me-2"><span>Edit</span></a>
-                            <a href="<?= base_url('lapangan/delete/' . $field['id']) ?>" class="btn btn-danger">Delete</a>
+                            <a href="#" class="btn btn-danger" onclick="confirmDeletion('<?= base_url('lapangan/delete/' . $field['id']) ?>')">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -163,5 +163,11 @@
             }
         });
         console.log('Requesting:', fieldId);
+    }
+
+    function confirmDeletion(url) {
+        if (confirm('Are you sure you want to delete this field?')) {
+            window.location.href = url;
+        }
     }
 </script>
