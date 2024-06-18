@@ -11,11 +11,11 @@
 
 <!-- SEARCH -->
 <section class="my-4">
-    <div id="fields" class="container search-form">
+    <div class="container search-form">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Cari Lapangan ..." aria-label="Search">
+                <form class="d-flex" action="<?= base_url('lapangan/search'); ?>" method="GET">
+                    <input class="form-control me-2" type="search" placeholder="Cari Lapangan ..." aria-label="Search" name="query">
                     <button class="btn btn-outline-primary" type="submit">Cari</button>
                 </form>
             </div>
@@ -29,13 +29,13 @@
         <?php foreach ($fields as $field) : ?>
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    <img src="<?= base_url() . $field['img_url']; ?>" class="card-img-top" alt="<?= $field['name']; ?>">
+                    <img src="<?= base_url() . $field['img_url']; ?>" class="card-img-top uniform-img" alt="<?= $field['name']; ?>">
                     <div class="card-body">
                         <h5 class="card-title"><?= $field['name']; ?></h5>
                         <p class="card-text"><?= $field['description']; ?></p>
                         <div class="d-flex justify-content-center">
-                            <a href="<?= base_url('lapangan/edit/' . $field['id']) ?>" type="button" class="btn btn-info me-2">Edit</a>
-                            <a href="<?= base_url('lapangan/delete/' . $field['id']) ?>" type="button" class="btn btn-danger">Delete</a>
+                            <a href="<?= base_url('lapangan/edit/' . $field['id']) ?>" class="btn btn-info me-2"><span>Edit</span></a>
+                            <a href="<?= base_url('lapangan/delete/' . $field['id']) ?>" class="btn btn-danger">Delete</a>
                         </div>
                     </div>
                 </div>
@@ -43,6 +43,7 @@
         <?php endforeach; ?>
     </div>
 </div>
+
 
 
 <!-- FIELD DETAIL MDOAL -->

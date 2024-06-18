@@ -11,3 +11,8 @@
 	transform: translate(-50%, -50%);
 	text-align: center;
 }
+.uniform-img {
+    height: 300px;  
+    width: 100%;    
+    object-fit: cover;  
+}

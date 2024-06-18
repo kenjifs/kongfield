@@ -36,4 +36,12 @@ class Field_model extends CI_Model
         $this->db->where('id', $id);
         return $this->db->delete('fields');
     }
+
+    public function get_search_results($search_term)
+    {
+        $this->db->like('name', $search_term);
+        $this->db->or_like('description', $search_term);
+        $query = $this->db->get('fields');
+        return $query->result_array();
+    }
 }

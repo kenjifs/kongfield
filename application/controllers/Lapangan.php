@@ -28,19 +28,6 @@ class Lapangan extends CI_Controller
         $this->load->view('layout/footer');
     }
 
-
-    public function get_field_details()
-    {
-        $field_id = $this->input->post('id');
-        if (!$field_id) {
-            log_message('error', 'Field ID is missing.');
-            show_error('Field ID is required.', 400); // Sends a 400 error response if no ID provided
-            return;
-        }
-        $field_details = $this->field_model->get_field_by_id($field_id);
-        echo json_encode($field_details);
-    }
-
     public function create()
     {
         $this->load->view('layout/header');
@@ -76,5 +63,15 @@ class Lapangan extends CI_Controller
     {
         $this->field_model->delete_field($id);
         redirect('lapangan/admin');
+    }
+
+    public function search()
+    {
+        $search_term = $this->input->get('query');
+        $data['fields'] = $this->field_model->get_search_results($search_term);
+        $this->load->view('layout/header');
+        $this->load->view('layout/navbar');
+        $this->load->view('lapangan/lapangan_admin', $data);
+        $this->load->view('layout/footer');
     }
 }
