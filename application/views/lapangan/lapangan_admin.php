@@ -44,8 +44,6 @@
     </div>
 </div>
 
-
-
 <!-- FIELD DETAIL MDOAL -->
 <div class="modal fade" id="fieldDetailModal" tabindex="-1" aria-labelledby="fieldDetailModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">

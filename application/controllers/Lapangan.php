@@ -74,4 +74,12 @@ class Lapangan extends CI_Controller
         $this->load->view('lapangan/lapangan_admin', $data);
         $this->load->view('layout/footer');
     }
+
+    public function get_field_details()
+    {
+        $this->load->model('field_model');
+        $field_id = $this->input->post('id');
+        $field_details = $this->field_model->get_field_by_id($field_id);
+        echo json_encode($field_details);
+    }
 }
