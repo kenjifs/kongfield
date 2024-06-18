@@ -1,7 +1,7 @@
 .hero-section {
 	position: relative;
 	height: 80vh;
-	background: url("./hero-img.jpg") center center/cover no-repeat;
+	background: url("./img/hero-img.jpg") center center/cover no-repeat;
 	color: white;
 }
 .hero-text {

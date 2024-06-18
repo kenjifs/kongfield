@@ -21,47 +21,27 @@
     </div>
   </div>
 </section>
+
 <!-- GRID -->
 <div class="container card-grid">
   <div class="row">
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=1" class="card-img-top" alt="Field 1">
-        <div class="card-body">
-          <h5 class="card-title">Field 1</h5>
-          <p class="card-text">A beautiful field perfect for soccer matches and tournaments.</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
-            View Details
-          </button>
+    <?php foreach ($fields as $field) : ?>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="<?= $field['img_url']; ?>" class="card-img-top" alt="<?= $field['name']; ?>">
+          <div class="card-body">
+            <h5 class="card-title"><?= $field['name']; ?></h5>
+            <p class="card-text"><?= $field['description']; ?></p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
+              View Details
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=2" class="card-img-top" alt="Field 2">
-        <div class="card-body">
-          <h5 class="card-title">Field 2</h5>
-          <p class="card-text">Ideal for practice sessions and local sports events.</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
-            View Details
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=3" class="card-img-top" alt="Field 3">
-        <div class="card-body">
-          <h5 class="card-title">Field 3</h5>
-          <p class="card-text">Perfect for recreational activities and family gatherings.</p>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
-            View Details
-          </button>
-        </div>
-      </div>
-    </div>
+    <?php endforeach; ?>
   </div>
 </div>
+
 
 <!-- FIELD DETAIL MDOAL -->
 <div class="modal fade" id="fieldDetailModal" tabindex="-1" aria-labelledby="fieldDetailModalLabel" aria-hidden="true">
