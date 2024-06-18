@@ -1,0 +1,13 @@
+.hero-section {
+	position: relative;
+	height: 80vh;
+	background: url("./hero-img.jpg") center center/cover no-repeat;
+	color: white;
+}
+.hero-text {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
