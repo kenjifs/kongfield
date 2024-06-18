@@ -22,7 +22,6 @@
     </div>
   </div>
 </section>
-
 <!-- GRID -->
 <div class="container card-grid">
   <div class="row">
@@ -65,7 +64,7 @@
   </div>
 </div>
 
-<!-- MDOAL -->
+<!-- FIELD DETAIL MDOAL -->
 <div class="modal fade" id="fieldDetailModal" tabindex="-1" aria-labelledby="fieldDetailModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
@@ -97,11 +96,57 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="submitBookingForm();">Confirm Booking</button>
+        <button type="button" class="btn btn-primary" onclick="submitBookingForm();" data-bs-toggle="modal" data-bs-target="#paymentModal">Confirm Booking</button>
       </div>
     </div>
   </div>
 </div>
+
+<!-- PAYMENT MODAL -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="paymentModalLabel">Payment Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Payment Form -->
+        <form id="paymentForm">
+          <div class="mb-3">
+            <label for="customerName" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="customerName" required>
+          </div>
+          <div class="mb-3">
+            <label for="customerContact" class="form-label">Contact:</label>
+            <input type="text" class="form-control" id="customerContact" required>
+          </div>
+          <div class="mb-3">
+            <label for="pricePerHour" class="form-label">Price per Hour:</label>
+            <input type="text" class="form-control" id="pricePerHour" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="totalAmount" class="form-label">Total Amount:</label>
+            <input type="text" class="form-control" id="totalAmount" readonly>
+          </div>
+          <div class="mb-3">
+            <label for="paymentMethod" class="form-label">Payment Method:</label>
+            <select class="form-control" id="paymentMethod">
+              <option value="1">BCA - 7123321</option>
+              <option value="2">Mandiri - 1233212</option>
+              <option value="3">Gopay / OVO / Dana - 0812312312</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-success">Make Payment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   function submitBookingForm() {
     var bookingDate = document.getElementById('bookingDate').value;
