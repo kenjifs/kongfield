@@ -32,7 +32,9 @@
         <div class="card-body">
           <h5 class="card-title">Field 1</h5>
           <p class="card-text">A beautiful field perfect for soccer matches and tournaments.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
+            View Details
+          </button>
         </div>
       </div>
     </div>
@@ -42,7 +44,9 @@
         <div class="card-body">
           <h5 class="card-title">Field 2</h5>
           <p class="card-text">Ideal for practice sessions and local sports events.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
+            View Details
+          </button>
         </div>
       </div>
     </div>
@@ -52,69 +56,61 @@
         <div class="card-body">
           <h5 class="card-title">Field 3</h5>
           <p class="card-text">Perfect for recreational activities and family gatherings.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=4" class="card-img-top" alt="Field 4">
-        <div class="card-body">
-          <h5 class="card-title">Field 4</h5>
-          <p class="card-text">A well-maintained field suitable for various sports.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=5" class="card-img-top" alt="Field 5">
-        <div class="card-body">
-          <h5 class="card-title">Field 5</h5>
-          <p class="card-text">Great for both competitive and casual games.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=6" class="card-img-top" alt="Field 6">
-        <div class="card-body">
-          <h5 class="card-title">Field 6</h5>
-          <p class="card-text">An excellent choice for community events.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=7" class="card-img-top" alt="Field 7">
-        <div class="card-body">
-          <h5 class="card-title">Field 7</h5>
-          <p class="card-text">Well-equipped for various sporting activities.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=8" class="card-img-top" alt="Field 8">
-        <div class="card-body">
-          <h5 class="card-title">Field 8</h5>
-          <p class="card-text">Perfect for training and drills.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="card">
-        <img src="https://picsum.photos/400/300?random=9" class="card-img-top" alt="Field 9">
-        <div class="card-body">
-          <h5 class="card-title">Field 9</h5>
-          <p class="card-text">A top choice for outdoor activities.</p>
-          <a href="#" class="btn btn-primary">Book Now</a>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
+            View Details
+          </button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- MDOAL -->
+<div class="modal fade" id="fieldDetailModal" tabindex="-1" aria-labelledby="fieldDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="fieldDetailModalLabel">Field Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="https://picsum.photos/400/300" class="card-img-top mb-3 img-fluid" alt="Field Image">
+        <p class="lead">Address: <span id="fieldAddress">123 Example St, City</span></p>
+        <p class="lead">Pricing: <span id="fieldPricing">$100/hour</span></p>
+        <!-- Booking Form -->
+        <form>
+          <div class="mb-3">
+            <label for="bookingDate" class="form-label">Date:</label>
+            <input type="date" class="form-control" id="bookingDate" required>
+          </div>
+          <div class="mb-3 row">
+            <div class="col">
+              <label for="startTime" class="form-label">Start Time:</label>
+              <input type="time" class="form-control" id="startTime" required>
+            </div>
+            <div class="col">
+              <label for="endTime" class="form-label">End Time:</label>
+              <input type="time" class="form-control" id="endTime" required>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="submitBookingForm();">Confirm Booking</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function submitBookingForm() {
+    var bookingDate = document.getElementById('bookingDate').value;
+    var startTime = document.getElementById('startTime').value;
+    var endTime = document.getElementById('endTime').value;
+
+    // Log the values or send them to a server
+    console.log("Booking Date:", bookingDate);
+    console.log("Start Time:", startTime);
+    console.log("End Time:", endTime);
+  }
+</script>
