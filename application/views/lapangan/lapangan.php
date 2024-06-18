@@ -32,9 +32,8 @@
           <div class="card-body">
             <h5 class="card-title"><?= $field['name']; ?></h5>
             <p class="card-text"><?= $field['description']; ?></p>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">
-              View Details
-            </button>
+            <button class="btn btn-primary" onclick="loadFieldDetails(<?= $field['id']; ?>);" data-bs-toggle="modal" data-bs-target="#fieldDetailModal">View Details</button>
+            <a href="" type="button"></a>
           </div>
         </div>
       </div>
@@ -136,5 +135,31 @@
     console.log("Booking Date:", bookingDate);
     console.log("Start Time:", startTime);
     console.log("End Time:", endTime);
+  }
+
+  function loadFieldDetails(fieldId) {
+    $.ajax({
+      url: '<?= base_url('lapangan/get_field_details'); ?>',
+      type: 'POST',
+      data: {
+        id: fieldId
+      },
+      dataType: 'json',
+      success: function(response) {
+        if (response) {
+          $('#fieldDetailModal #fieldAddress').text(response.address);
+          $('#fieldDetailModal #fieldPricing').text(response.pricing + '/hour');
+          $('#fieldDetailModal .modal-title').text(response.name);
+          $('#fieldDetailModal img').attr('src', response.img_url);
+          $('#fieldDetailModal img').attr('alt', response.name);
+        }
+      },
+      error: function(xhr, status, error) {
+        console.error("Error: " + error);
+        console.error("Status: " + status);
+        console.error("Response: " + xhr.responseText);
+      }
+    });
+    console.log('Requesting:', fieldId);
   }
 </script>

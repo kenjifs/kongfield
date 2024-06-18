@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="#footer">Contacts</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active btn btn-secondary btn-sm" aria-current="page" href="<?= base_url('lapangan/lapangan_admin'); ?>">Login</a>
+                </li>
             </ul>
         </div>
     </div>
